@@ -8,6 +8,7 @@ class Repository
         public readonly string $id,
         public readonly string $user,
         public readonly string $name,
+        public readonly bool $isPublic,
     ) {
     }
 }
