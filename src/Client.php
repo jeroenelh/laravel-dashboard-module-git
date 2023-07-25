@@ -27,11 +27,16 @@ class Client
      */
     public function request(string $uri): object|array|string
     {
+        $headers = [];
+        foreach ($this->headers as $key => $value) {
+            $headers[] = trim($key).": ".trim($value);
+        }
+
         $curl = curl_init(sprintf('%s%s', $this->api, $uri));
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($curl, CURLOPT_USERAGENT, __CLASS__);
         curl_setopt($curl, CURLOPT_HEADER, true);
-        curl_setopt($curl, CURLOPT_HTTPHEADER, $this->headers);
+        curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
 
         $curlResponse = curl_exec($curl);
         curl_close($curl);
