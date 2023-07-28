@@ -1,6 +1,6 @@
 <?php
 
-namespace Microit\DashboardModuleGithub;
+namespace Microit\DashboardModuleGit;
 
 use Illuminate\Support\ServiceProvider;
 
