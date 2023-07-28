@@ -18,7 +18,6 @@
         "ext-json": "*",
         "illuminate/support": "^10.0",
         "nesbot/carbon": "^2.68",
-        "graham-campbell/github": "^12.2",
         "illuminate/http": "^10.15",
         "illuminate/queue": "^10.16"
     },
@@ -37,6 +36,11 @@
         "check-code": "composer run psalm && composer run phpmd && composer run php-cs-fixer"
     },
     "extra": {
+        "laravel": {
+            "providers": [
+                "Microit\\DashboardModuleGit\\GitServiceProvider"
+            ]
+        },
         "hooks": {
             "config": {
                 "stop-on-failure": ["pre-push"]
