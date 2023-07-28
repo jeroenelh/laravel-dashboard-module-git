@@ -16,5 +16,6 @@ class PullRequestOpened
     public function __construct(
         public readonly PullRequest $order,
         public readonly User $user
-    ) {}
+    ) {
+    }
 }

@@ -29,7 +29,7 @@ class Client
     {
         $headers = [];
         foreach ($this->headers as $key => $value) {
-            $headers[] = trim($key).": ".trim($value);
+            $headers[] = trim($key).': '.trim($value);
         }
 
         $curl = curl_init(sprintf('%s%s', $this->api, $uri));
