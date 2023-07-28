@@ -19,7 +19,8 @@
         "illuminate/support": "^10.0",
         "nesbot/carbon": "^2.68",
         "graham-campbell/github": "^12.2",
-        "illuminate/http": "^10.15"
+        "illuminate/http": "^10.15",
+        "illuminate/queue": "^10.16"
     },
     "require-dev": {
         "vimeo/psalm": "^5.11",
