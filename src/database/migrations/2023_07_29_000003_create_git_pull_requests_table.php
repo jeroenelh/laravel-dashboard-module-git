@@ -14,6 +14,7 @@ return new class extends Migration {
         Schema::create('git_pull_requests', function (Blueprint $table) {
             $table->bigInteger('id');
             $table->string('source');
+            $table->string('title');
             $table->integer('number');
             $table->string('state');
             $table->string('repository_id');
