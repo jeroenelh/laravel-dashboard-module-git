@@ -12,12 +12,13 @@ return new class extends Migration {
     public function up(): void
     {
         Schema::create('git_branches', function (Blueprint $table) {
-            $table->string('name');
-            $table->string('user');
+            $table->string('id');
             $table->string('source');
+            $table->string('user');
+            $table->string('name');
             $table->string('repository_id');
             $table->timestamps();
-            $table->unique(['name', 'user', 'source']);
+            $table->unique(['id', 'source']);
         });
     }
 

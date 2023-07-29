@@ -18,9 +18,10 @@ class Branch extends Model
     protected $dateFormat = 'Y-m-d H:i:s';
 
     protected $fillable = [
-        'name',
-        'user',
+        'id',
         'source',
+        'user',
+        'name',
         'repository_id',
     ];
 
@@ -31,16 +32,16 @@ class Branch extends Model
     public static function fromAttributes(array $attributes): self
     {
         /** @var Branch|null $object */
-        $object = self::where('name', $attributes['name'])
-                    ->where('user', $attributes['user'])
+        $object = self::where('id', $attributes['id'])
                     ->where('source', static::$source)
                     ->first();
 
         if (is_null($object)) {
             $object = self::create([
-                'name' => $attributes['name'],
-                'user' => $attributes['user'],
+                'id' => $attributes['id'],
                 'source' => static::$source,
+                'user' => $attributes['user'],
+                'name' => $attributes['name'],
                 'repository_id' => $attributes['repository_id'],
             ]);
         }
