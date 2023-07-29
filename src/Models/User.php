@@ -13,7 +13,7 @@ class User extends Model
 {
     protected $table = 'git_users';
 
-    public const SOURCE = 'unknown';
+    public static string $source = 'unknown';
 
     protected $dateFormat = 'Y-m-d H:i:s';
 
@@ -31,14 +31,14 @@ class User extends Model
     {
         /** @var User|null $object */
         $object = self::where('id', $attributes['id'])
-                    ->where('source', get_called_class()::SOURCE)
+                    ->where('source', static::$source)
                     ->first();
 
         if (is_null($object)) {
             $object = self::create([
                 'id' => $attributes['id'],
                 'name' => $attributes['name'],
-                'source' => get_called_class()::SOURCE,
+                'source' => static::$source,
             ]);
         }
 

@@ -13,7 +13,7 @@ class Repository extends Model
 {
     protected $table = 'git_repositories';
 
-    public const SOURCE = 'unknown';
+    public static string $source = 'unknown';
 
     protected $dateFormat = 'Y-m-d H:i:s';
 
@@ -36,13 +36,13 @@ class Repository extends Model
     {
         /** @var Repository|null $object */
         $object = self::where('id', $attributes['id'])
-                    ->where('source', get_called_class()::SOURCE)
+                    ->where('source', static::$source)
                     ->first();
 
         if (is_null($object)) {
             $object = self::create([
                 'id' => $attributes['id'],
-                'source' => get_called_class()::SOURCE,
+                'source' => static::$source,
                 'name' => $attributes['name'],
                 'is_public' => $attributes['is_public'],
             ]);

@@ -13,7 +13,7 @@ class Branch extends Model
 {
     protected $table = 'git_branches';
 
-    public const SOURCE = 'unknown';
+    public static string $source = 'unknown';
 
     protected $dateFormat = 'Y-m-d H:i:s';
 
@@ -33,14 +33,14 @@ class Branch extends Model
         /** @var Branch|null $object */
         $object = self::where('name', $attributes['name'])
                     ->where('user', $attributes['user'])
-                    ->where('source', get_called_class()::SOURCE)
+                    ->where('source', static::$source)
                     ->first();
 
         if (is_null($object)) {
             $object = self::create([
                 'name' => $attributes['name'],
                 'user' => $attributes['user'],
-                'source' => get_called_class()::SOURCE,
+                'source' => static::$source,
                 'repository_id' => $attributes['repository_id'],
             ]);
         }
