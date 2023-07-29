@@ -20,6 +20,7 @@ class Repository extends Model
     protected $fillable = [
         'id',
         'source',
+        'user',
         'name',
         'is_public',
     ];
