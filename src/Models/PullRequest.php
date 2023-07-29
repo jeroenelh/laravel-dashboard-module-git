@@ -35,7 +35,7 @@ class PullRequest extends Model
 
     /**
      * @param array{
-     *     id: string,
+     *     id: int,
      *     title: string,
      *     number: int,
      *     state: string,
