@@ -24,7 +24,7 @@ class User extends Model
     ];
 
     protected $attributes = [
-        'source' => 'unkown',
+        'source' => 'unknown',
     ];
 
     /**

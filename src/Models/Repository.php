@@ -26,7 +26,7 @@ class Repository extends Model
     ];
 
     protected $attributes = [
-        'source' => 'unkown',
+        'source' => 'unknown',
     ];
 
     protected $casts = [

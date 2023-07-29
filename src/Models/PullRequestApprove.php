@@ -3,15 +3,62 @@
 namespace Microit\DashboardModuleGit\Models;
 
 use Carbon\Carbon;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Query\Builder;
 
-class PullRequestApprove
+/**
+ * @method static PullRequestApprove create(array $array)
+ * @method static Builder where(string $string, mixed $name)
+ */
+class PullRequestApprove extends Model
 {
-    public function __construct(
-        public readonly int $id,
-        public readonly string $state,
-        public readonly PullRequest $pullRequest,
-        public readonly User $user,
-        public readonly Carbon $submittedAt
-    ) {
+    protected $table = 'git_pull_request_approves';
+
+    public static string $source = 'unknown';
+
+    protected $dateFormat = 'Y-m-d H:i:s';
+
+    protected $fillable = [
+        'id',
+        'source',
+        'state',
+        'pull_request_id',
+        'user_id',
+        'submitted_at',
+    ];
+
+    protected $attributes = [
+        'source' => 'unknown',
+    ];
+
+    /**
+     * @param array{
+     *     id: string,
+     *     state: string,
+     *     pull_request_id: int,
+     *     user_id: int,
+     *     submitted_at: Carbon,
+     * } $attributes
+     * @return self
+     */
+    public static function fromAttributes(array $attributes): self
+    {
+        /** @var PullRequestApprove|null $object */
+        $object = self::where('id', $attributes['id'])
+            ->where('source', static::$source)
+            ->first();
+
+        if (is_null($object)) {
+            $object = self::create([
+                'id' => $attributes['id'],
+                'source' => static::$source,
+                'state' => $attributes['state'],
+                'pull_request_id' => $attributes['pull_request_id'],
+                'user_id' => $attributes['user_id'],
+                'submitted_at' => $attributes['submitted_at'],
+            ]);
+        }
+
+        return $object;
     }
 }
