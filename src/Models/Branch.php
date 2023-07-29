@@ -29,8 +29,6 @@ class Branch extends Model
         'source' => 'unkown',
     ];
 
-
-
     /**
      * @param array{
      *     id: string,

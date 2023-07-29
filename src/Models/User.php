@@ -27,11 +27,9 @@ class User extends Model
         'source' => 'unkown',
     ];
 
-
-
     /**
      * @param array{
-     *     id: string,
+     *     id: int,
      *     name: string,
      * } $attributes
      * @return self
