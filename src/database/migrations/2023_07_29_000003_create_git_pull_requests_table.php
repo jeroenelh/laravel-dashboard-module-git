@@ -18,7 +18,7 @@ return new class extends Migration {
             $table->integer('number');
             $table->string('state');
             $table->string('repository_id');
-            $table->bigInteger('user');
+            $table->bigInteger('user_id');
             $table->string('from_branch_id');
             $table->string('to_branch_id');
             $table->timestamps();
