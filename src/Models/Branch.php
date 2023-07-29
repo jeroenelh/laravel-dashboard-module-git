@@ -29,6 +29,17 @@ class Branch extends Model
         'source' => 'unkown',
     ];
 
+
+
+    /**
+     * @param array{
+     *     id: string,
+     *     user: string,
+     *     name: string,
+     *     repository_id: int,
+     * } $attributes
+     * @return self
+     */
     public static function fromAttributes(array $attributes): self
     {
         /** @var Branch|null $object */

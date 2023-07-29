@@ -27,6 +27,15 @@ class User extends Model
         'source' => 'unkown',
     ];
 
+
+
+    /**
+     * @param array{
+     *     id: string,
+     *     name: string,
+     * } $attributes
+     * @return self
+     */
     public static function fromAttributes(array $attributes): self
     {
         /** @var User|null $object */

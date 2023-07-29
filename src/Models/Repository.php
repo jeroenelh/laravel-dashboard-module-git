@@ -33,6 +33,17 @@ class Repository extends Model
         'is_public' => 'boolean',
     ];
 
+
+
+    /**
+     * @param array{
+     *     id: string,
+     *     user: string,
+     *     name: string,
+     *     is_public: bool,
+     * } $attributes
+     * @return self
+     */
     public static function fromAttributes(array $attributes): self
     {
         /** @var Repository|null $object */
