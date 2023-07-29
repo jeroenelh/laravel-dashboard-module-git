@@ -15,6 +15,8 @@ class User extends Model
 
     public static string $source = 'unknown';
 
+    public $incrementing = false;
+
     protected $dateFormat = 'Y-m-d H:i:s';
 
     protected $fillable = [
