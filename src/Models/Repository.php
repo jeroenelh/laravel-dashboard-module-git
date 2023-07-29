@@ -44,6 +44,7 @@ class Repository extends Model
             $object = self::create([
                 'id' => $attributes['id'],
                 'source' => static::$source,
+                'user' => $attributes['user'],
                 'name' => $attributes['name'],
                 'is_public' => $attributes['is_public'],
             ]);
