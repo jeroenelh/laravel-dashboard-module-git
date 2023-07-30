@@ -6,7 +6,7 @@ use Illuminate\Queue\SerializesModels;
 use Microit\DashboardModuleGit\Models\PullRequest;
 use Microit\DashboardModuleGit\Models\User;
 
-class PullRequestOpened
+class PullRequestEdited
 {
     use SerializesModels;
 
