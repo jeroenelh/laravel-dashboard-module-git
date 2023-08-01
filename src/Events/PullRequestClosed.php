@@ -2,17 +2,15 @@
 
 namespace Microit\DashboardModuleGit\Events;
 
-use Illuminate\Queue\SerializesModels;
 use Microit\DashboardModuleGit\Models\PullRequest;
 use Microit\DashboardModuleGit\Models\User;
 
-class PullRequestClosed
+class PullRequestClosed extends Event
 {
-    use SerializesModels;
-
     public function __construct(
-        public readonly PullRequest $order,
-        public readonly User $user
+        PullRequest $order,
+        User $user
     ) {
+        parent::__construct(func_get_args());
     }
 }
