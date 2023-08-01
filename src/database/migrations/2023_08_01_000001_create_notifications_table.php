@@ -14,7 +14,7 @@ return new class extends Migration {
         Schema::create('notifications', function (Blueprint $table) {
             $table->integerIncrements('id');
             $table->string('class');
-            $table->json('objects')->default([]);
+            $table->json('objects')->default(json_encode([]));
             $table->string('title')->nullable();
             $table->string('message')->nullable();
             $table->string('type')->nullable();
