@@ -18,6 +18,7 @@ return new class extends Migration {
             $table->string('title')->nullable();
             $table->string('message')->nullable();
             $table->string('type')->nullable();
+            $table->string('avatar')->nullable();
             $table->timestamps();
         });
     }

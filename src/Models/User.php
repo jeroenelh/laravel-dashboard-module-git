@@ -23,6 +23,7 @@ class User extends Model
         'id',
         'source',
         'name',
+        'avatar',
     ];
 
     protected $attributes = [
@@ -33,6 +34,7 @@ class User extends Model
      * @param array{
      *     id: int,
      *     name: string,
+     *     avatar: ?string,
      * } $attributes
      * @return self
      */
@@ -46,8 +48,9 @@ class User extends Model
         if (is_null($object)) {
             $object = self::create([
                 'id' => $attributes['id'],
-                'name' => $attributes['name'],
                 'source' => static::$source,
+                'name' => $attributes['name'],
+                'avatar' => $attributes['avatar'] ?? null,
             ]);
         }
 

@@ -14,6 +14,7 @@ return new class extends Migration {
             $table->bigInteger('id');
             $table->string('source');
             $table->string('name');
+            $table->string('avatar')->nullable();
             $table->timestamps();
             $table->unique(['id', 'source']);
         });

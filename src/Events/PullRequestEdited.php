@@ -8,9 +8,9 @@ use Microit\DashboardModuleGit\Models\User;
 class PullRequestEdited extends Event
 {
     public function __construct(
-        public readonly PullRequest $order,
+        public readonly PullRequest $pullRequest,
         public readonly User $user
     ) {
-        parent::__construct(func_get_args());
+        parent::__construct(['pull_request' => $this->pullRequest, 'user' => $this->user]);
     }
 }

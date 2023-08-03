@@ -8,9 +8,9 @@ use Microit\DashboardModuleGit\Models\User;
 class PullRequestClosed extends Event
 {
     public function __construct(
-        PullRequest $order,
-        User $user
+        public readonly PullRequest $pullRequest,
+        public readonly User $user
     ) {
-        parent::__construct(func_get_args());
+        parent::__construct(['pull_request' => $this->pullRequest, 'user' => $this->user]);
     }
 }
