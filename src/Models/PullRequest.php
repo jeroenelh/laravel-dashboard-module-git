@@ -10,7 +10,7 @@ use Illuminate\Database\Query\Builder;
  * @property string $title
  * @property int $number
  * @property string $state
- * @property int $repository_id
+ * @property string $repository_id
  * @property int $user_id
  * @property string $from_branch_id
  * @property string $to_branch_id
@@ -49,7 +49,7 @@ class PullRequest extends Model
      *     title: string,
      *     number: int,
      *     state: string,
-     *     repository_id: int,
+     *     repository_id: string,
      *     user_id: int,
      *     from_branch_id: string,
      *     to_branch_id: string,
