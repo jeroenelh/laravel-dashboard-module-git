@@ -34,7 +34,7 @@ class User extends Model
      * @param array{
      *     id: int,
      *     name: string,
-     *     avatar: ?string,
+     *     avatar?: string,
      * } $attributes
      * @return self
      */
