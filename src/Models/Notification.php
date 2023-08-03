@@ -28,6 +28,7 @@ class Notification extends Model
         'title',
         'message',
         'type',
+        'avatar',
     ];
 
     protected $casts = [
