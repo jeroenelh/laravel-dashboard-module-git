@@ -9,21 +9,27 @@ class Event
 {
     use SerializesModels;
 
-    public readonly array $objects;
+    protected ?string $title = null;
 
-    public function __construct()
+    protected ?string $message = null;
+
+    protected ?string $type = null;
+
+    protected ?string $avatar = null;
+
+    public function __construct(public readonly array $objects)
     {
-        $this->objects = func_get_args();
     }
 
     public function notify(): Notification
     {
         return Notification::create([
-           'class' => __CLASS__,
+           'class' => get_called_class(),
            'objects' => $this->objects,
-           'title' => null,
-           'message' => null,
-           'type' => null,
+           'title' => $this->title,
+           'message' => $this->message,
+           'type' => $this->type,
+           'avatar' => $this->avatar,
         ]);
     }
 }

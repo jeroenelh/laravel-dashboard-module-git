@@ -6,6 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Query\Builder;
 
 /**
+ * @property string $id
+ * @property string $user
+ * @property string $name
+ * @property bool $is_public
  * @method static Repository create(array $array)
  * @method static Builder where(string $string, mixed $name)
  */

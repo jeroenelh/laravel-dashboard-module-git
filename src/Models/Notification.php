@@ -6,6 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Query\Builder;
 
 /**
+ * @property int $id
+ * @property string $class
+ * @property array $objects
+ * @property string $title
+ * @property string $message
+ * @property string $type
  * @method static Notification create(array $array)
  * @method static Builder where(string $string, mixed $name)
  */

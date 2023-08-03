@@ -6,6 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Query\Builder;
 
 /**
+ * @property string $id
+ * @property string $user
+ * @property string $name
+ * @property int $repository_id
  * @method static Branch create(array $array)
  * @method static Builder where(string $string, mixed $name)
  */

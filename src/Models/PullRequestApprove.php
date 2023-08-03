@@ -7,6 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Query\Builder;
 
 /**
+ * @property string $id
+ * @property string $state
+ * @property int $pull_request_id
+ * @property int $user_id
+ * @property Carbon $submitted_at
  * @method static PullRequestApprove create(array $array)
  * @method static Builder where(string $string, mixed $name)
  */

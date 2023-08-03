@@ -12,5 +12,8 @@ class PullRequestOpened extends Event
         public readonly User $user
     ) {
         parent::__construct(['pull_request' => $this->pullRequest, 'user' => $this->user]);
+        $this->title = 'Pull request closed';
+        $this->message = sprintf('%s opened pull request %s', $this->user->name, $this->pullRequest->title);
+        $this->avatar = $this->user->avatar;
     }
 }
