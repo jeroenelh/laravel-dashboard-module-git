@@ -42,7 +42,7 @@ class Event
             }
 
             \Microit\DashboardNotifications\Models\NotificationTagValue::create([
-                'tag_id' => $notificationTagValue->model,
+                'tag_id' => $notificationTagValue->model->id,
                 'notification_id' => $notification->id,
                 'value' => $notificationTagValue->value,
             ]);

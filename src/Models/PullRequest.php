@@ -16,8 +16,6 @@ use Illuminate\Database\Query\Builder;
  * @property string $from_branch_id
  * @property string $to_branch_id
  * @property Repository $repository
- * @property Branch $from_branch
- * @property Branch $to_branch
  * @method static PullRequest create(array $array)
  * @method static Builder where(string $string, mixed $name)
  */
@@ -89,13 +87,23 @@ class PullRequest extends Model
         return $this->belongsTo(Repository::class);
     }
 
-    public function fromBranch(): BelongsTo
+    public function fromBranch(): ?Branch
     {
-        return $this->belongsTo(Branch::class);
+        $branch = Branch::where('id', $this->from_branch_id)->where('repository_id', $this->repository_id)->first();
+        if ($branch instanceof Branch) {
+            return $branch;
+        }
+
+        return null;
     }
 
-    public function toBranch(): BelongsTo
+    public function toBranch(): ?Branch
     {
-        return $this->belongsTo(Branch::class);
+        $branch = Branch::where('id', $this->to_branch_id)->where('repository_id', $this->repository_id)->first();
+        if ($branch instanceof Branch) {
+            return $branch;
+        }
+
+        return null;
     }
 }
