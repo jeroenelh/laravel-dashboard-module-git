@@ -19,7 +19,8 @@
         "illuminate/support": "^10.0",
         "nesbot/carbon": "^2.68",
         "illuminate/http": "^10.15",
-        "illuminate/queue": "^10.16"
+        "illuminate/queue": "^10.16",
+        "microit/dashboard-notifications": "dev-main"
     },
     "require-dev": {
         "vimeo/psalm": "^5.11",
@@ -61,5 +62,7 @@
         "allow-plugins": {
             "php-http/discovery": true
         }
-    }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
 }

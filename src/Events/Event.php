@@ -3,7 +3,7 @@
 namespace Microit\DashboardModuleGit\Events;
 
 use Illuminate\Queue\SerializesModels;
-use Microit\DashboardModuleGit\Models\Notification;
+use Microit\DashboardNotifications\Models\Notification;
 
 class Event
 {
