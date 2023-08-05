@@ -9,8 +9,8 @@ use Microit\DashboardNotifications\NotificationTagValue;
 class PullRequestEvent extends Event
 {
     public function __construct(
-        public readonly PullRequest $pullRequest,
-        public readonly User $user
+        public PullRequest $pullRequest,
+        public User $user
     ) {
         parent::__construct(['pull_request' => $this->pullRequest, 'user' => $this->user]);
 

@@ -8,8 +8,8 @@ use Microit\DashboardModuleGit\Models\User;
 class PullRequestEdited extends PullRequestEvent
 {
     public function __construct(
-        public readonly PullRequest $pullRequest,
-        public readonly User $user
+        public PullRequest $pullRequest,
+        public User $user
     ) {
         parent::__construct($this->pullRequest, $this->user);
         $this->title = 'Pull request closed';
