@@ -1330,12 +1330,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/jeroenelh/laravel-dashboard-notifications.git",
-                "reference": "0b01f14030dfa82562a76abee1dd02e2d7315b71"
+                "reference": "7ea4190af56fa3826dfa2904a19850e2fec10a9f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jeroenelh/laravel-dashboard-notifications/zipball/0b01f14030dfa82562a76abee1dd02e2d7315b71",
-                "reference": "0b01f14030dfa82562a76abee1dd02e2d7315b71",
+                "url": "https://api.github.com/repos/jeroenelh/laravel-dashboard-notifications/zipball/7ea4190af56fa3826dfa2904a19850e2fec10a9f",
+                "reference": "7ea4190af56fa3826dfa2904a19850e2fec10a9f",
                 "shasum": ""
             },
             "require": {
@@ -1394,7 +1394,7 @@
                 "issues": "https://github.com/jeroenelh/laravel-dashboard-notifications/issues",
                 "source": "https://github.com/jeroenelh/laravel-dashboard-notifications/tree/main"
             },
-            "time": "2023-08-05T11:44:46+00:00"
+            "time": "2023-08-05T21:17:01+00:00"
         },
         {
             "name": "nesbot/carbon",
