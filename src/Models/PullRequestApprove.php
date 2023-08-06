@@ -20,7 +20,7 @@ class PullRequestApprove extends Model
 {
     protected $table = 'git_pull_request_approves';
 
-    public static string $source = 'unknown';
+    public static string $staticSource = 'unknown';
 
     public $incrementing = false;
 
@@ -53,13 +53,13 @@ class PullRequestApprove extends Model
     {
         /** @var PullRequestApprove|null $object */
         $object = self::where('id', $attributes['id'])
-            ->where('source', static::$source)
+            ->where('source', static::$staticSource)
             ->first();
 
         if (is_null($object)) {
             $object = self::create([
                 'id' => $attributes['id'],
-                'source' => static::$source,
+                'source' => static::$staticSource,
                 'state' => $attributes['state'],
                 'pull_request_id' => $attributes['pull_request_id'],
                 'user_id' => $attributes['user_id'],

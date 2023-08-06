@@ -2,6 +2,7 @@
 
 namespace Microit\DashboardModuleGit\Models;
 
+use Exception;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Query\Builder;
@@ -24,7 +25,7 @@ class PullRequest extends Model
 {
     protected $table = 'git_pull_requests';
 
-    public static string $source = 'unknown';
+    public static string $staticSource = 'unknown';
 
     public $incrementing = false;
 
@@ -63,13 +64,13 @@ class PullRequest extends Model
     {
         /** @var PullRequest|null $object */
         $object = self::where('id', $attributes['id'])
-            ->where('source', static::$source)
+            ->where('source', static::$staticSource)
             ->first();
 
         if (is_null($object)) {
             $object = self::create([
                 'id' => $attributes['id'],
-                'source' => static::$source,
+                'source' => static::$staticSource,
                 'title' => $attributes['title'],
                 'number' => $attributes['number'],
                 'state' => $attributes['state'],
@@ -88,23 +89,23 @@ class PullRequest extends Model
         return $this->belongsTo(Repository::class);
     }
 
-    public function fromBranch(): ?Branch
+    public function fromBranch(): Branch
     {
         $branch = Branch::where('id', $this->from_branch_id)->where('repository_id', $this->repository_id)->first();
         if ($branch instanceof Branch) {
             return $branch;
         }
 
-        return null;
+        throw new Exception('From branch not found for pull request: '.$this->id.' ('.$this->source.')');
     }
 
-    public function toBranch(): ?Branch
+    public function toBranch(): Branch
     {
         $branch = Branch::where('id', $this->to_branch_id)->where('repository_id', $this->repository_id)->first();
         if ($branch instanceof Branch) {
             return $branch;
         }
 
-        return null;
+        throw new Exception('To branch not found for pull request: '.$this->id.' ('.$this->source.')');
     }
 }

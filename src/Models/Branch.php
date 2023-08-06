@@ -18,7 +18,7 @@ class Branch extends Model
 {
     protected $table = 'git_branches';
 
-    public static string $source = 'unknown';
+    public static string $staticSource = 'unknown';
 
     public $incrementing = false;
 
@@ -49,13 +49,13 @@ class Branch extends Model
     {
         /** @var Branch|null $object */
         $object = self::where('id', $attributes['id'])
-                    ->where('source', static::$source)
+                    ->where('source', static::$staticSource)
                     ->first();
 
         if (is_null($object)) {
             $object = self::create([
                 'id' => $attributes['id'],
-                'source' => static::$source,
+                'source' => static::$staticSource,
                 'user' => $attributes['user'],
                 'name' => $attributes['name'],
                 'repository_id' => $attributes['repository_id'],

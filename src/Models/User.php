@@ -17,7 +17,7 @@ class User extends Model
 {
     protected $table = 'git_users';
 
-    public static string $source = 'unknown';
+    public static string $staticSource = 'unknown';
 
     public $incrementing = false;
 
@@ -46,13 +46,13 @@ class User extends Model
     {
         /** @var User|null $object */
         $object = self::where('id', $attributes['id'])
-                    ->where('source', static::$source)
+                    ->where('source', static::$staticSource)
                     ->first();
 
         if (is_null($object)) {
             $object = self::create([
                 'id' => $attributes['id'],
-                'source' => static::$source,
+                'source' => static::$staticSource,
                 'name' => $attributes['name'],
                 'avatar' => $attributes['avatar'] ?? null,
             ]);

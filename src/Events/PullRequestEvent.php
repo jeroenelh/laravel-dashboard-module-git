@@ -9,25 +9,27 @@ use Microit\DashboardNotifications\NotificationTagValue;
 
 class PullRequestEvent extends Event
 {
+    protected Branch $fromBranch;
+
+    protected Branch $toBranch;
+
     public function __construct(
         public PullRequest $pullRequest,
         public User $user
     ) {
         parent::__construct(['pull_request' => $this->pullRequest, 'user' => $this->user]);
-        $fromBranch = $this->pullRequest->fromBranch();
-        $toBranch = $this->pullRequest->toBranch();
 
         $this->avatar = $this->user->avatar;
+        $this->notificationTagValues();
+        $this->fromBranch = $this->pullRequest->fromBranch();
+        $this->toBranch = $this->pullRequest->toBranch();
+    }
 
-        $this->notificationTagValues[] = new NotificationTagValue('git', 'user', $this->user->id);
-        $this->notificationTagValues[] = new NotificationTagValue('git', 'repository', $this->pullRequest->repository->id);
-
-        if ($fromBranch instanceof Branch) {
-            $this->notificationTagValues[] = new NotificationTagValue('git', 'branch', $fromBranch->id);
-        }
-
-        if ($toBranch instanceof Branch) {
-            $this->notificationTagValues[] = new NotificationTagValue('git', 'branch', $toBranch->id);
-        }
+    private function notificationTagValues(): void
+    {
+        $this->notificationTagValues[] = new NotificationTagValue('git', 'user', $this->user->id, $this->user->source);
+        $this->notificationTagValues[] = new NotificationTagValue('git', 'repository', $this->pullRequest->repository->id, $this->pullRequest->repository->source);
+        $this->notificationTagValues[] = new NotificationTagValue('git', 'branch', $this->fromBranch->id, $this->fromBranch->source);
+        $this->notificationTagValues[] = new NotificationTagValue('git', 'branch', $this->toBranch->id, $this->toBranch->source);
     }
 }

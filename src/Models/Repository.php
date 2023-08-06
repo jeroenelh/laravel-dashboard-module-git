@@ -18,7 +18,7 @@ class Repository extends Model
 {
     protected $table = 'git_repositories';
 
-    public static string $source = 'unknown';
+    public static string $staticSource = 'unknown';
 
     public $incrementing = false;
 
@@ -53,13 +53,13 @@ class Repository extends Model
     {
         /** @var Repository|null $object */
         $object = self::where('id', $attributes['id'])
-                    ->where('source', static::$source)
+                    ->where('source', static::$staticSource)
                     ->first();
 
         if (is_null($object)) {
             $object = self::create([
                 'id' => $attributes['id'],
-                'source' => static::$source,
+                'source' => static::$staticSource,
                 'user' => $attributes['user'],
                 'name' => $attributes['name'],
                 'is_public' => $attributes['is_public'],
