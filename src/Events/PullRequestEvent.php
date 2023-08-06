@@ -5,6 +5,7 @@ namespace Microit\DashboardModuleGit\Events;
 use Microit\DashboardModuleGit\Models\Branch;
 use Microit\DashboardModuleGit\Models\PullRequest;
 use Microit\DashboardModuleGit\Models\User;
+use Microit\DashboardNotifications\Event;
 use Microit\DashboardNotifications\NotificationTagValue;
 
 class PullRequestEvent extends Event
