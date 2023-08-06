@@ -45,6 +45,7 @@ class Event
                 'tag_id' => $notificationTagValue->model->id,
                 'notification_id' => $notification->id,
                 'value' => $notificationTagValue->value,
+                'model_source' => ($notificationTagValue->model->type == 'model') ? $notificationTagValue->modelSource : null,
             ]);
         }
 
