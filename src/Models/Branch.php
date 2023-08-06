@@ -7,6 +7,7 @@ use Illuminate\Database\Query\Builder;
 
 /**
  * @property string $id
+ * @property string $source
  * @property string $user
  * @property string $name
  * @property int $repository_id

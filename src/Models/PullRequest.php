@@ -8,6 +8,7 @@ use Illuminate\Database\Query\Builder;
 
 /**
  * @property int $id
+ * @property string $source
  * @property string $title
  * @property int $number
  * @property string $state

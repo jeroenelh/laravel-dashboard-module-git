@@ -19,15 +19,15 @@ class PullRequestEvent extends Event
 
         $this->avatar = $this->user->avatar;
 
-        $this->notificationTagValues[] = new NotificationTagValue('git', 'user', $this->user->id, get_class($this->user));
-        $this->notificationTagValues[] = new NotificationTagValue('git', 'repository', $this->pullRequest->repository->id, get_class($this->pullRequest->repository));
+        $this->notificationTagValues[] = new NotificationTagValue('git', 'user', $this->user->id);
+        $this->notificationTagValues[] = new NotificationTagValue('git', 'repository', $this->pullRequest->repository->id);
 
         if ($fromBranch instanceof Branch) {
-            $this->notificationTagValues[] = new NotificationTagValue('git', 'branch', $fromBranch->id, get_class($fromBranch));
+            $this->notificationTagValues[] = new NotificationTagValue('git', 'branch', $fromBranch->id);
         }
 
         if ($toBranch instanceof Branch) {
-            $this->notificationTagValues[] = new NotificationTagValue('git', 'branch', $toBranch->id, get_class($toBranch));
+            $this->notificationTagValues[] = new NotificationTagValue('git', 'branch', $toBranch->id);
         }
     }
 }
