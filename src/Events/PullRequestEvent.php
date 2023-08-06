@@ -20,9 +20,10 @@ class PullRequestEvent extends Event
         parent::__construct(['pull_request' => $this->pullRequest, 'user' => $this->user]);
 
         $this->avatar = $this->user->avatar;
-        $this->notificationTagValues();
         $this->fromBranch = $this->pullRequest->fromBranch();
         $this->toBranch = $this->pullRequest->toBranch();
+
+        $this->notificationTagValues();
     }
 
     private function notificationTagValues(): void
